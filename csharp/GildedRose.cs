@@ -4,6 +4,10 @@ namespace csharp
 {
     public class GildedRose
     {
+        private const int FirstConcertQualityThreshold = 10;
+        private const int SecondConcertQualityThreshold = 5;
+        private const int MaxQuality = 50;
+
         readonly IList<Item> _items;
         public GildedRose(IList<Item> items)
         {
@@ -23,23 +27,23 @@ namespace csharp
                 }
                 else
                 {
-                    if (_items[item_index].Quality < 50)
+                    if (_items[item_index].Quality < MaxQuality)
                     {
                         Increment_quality(item_index);
 
                         if (Item_is_backstage_pass(item_index))
                         {
-                            if (_items[item_index].SellIn <= 10)
+                            if (_items[item_index].SellIn <= FirstConcertQualityThreshold)
                             {
-                                if (_items[item_index].Quality < 50)
+                                if (_items[item_index].Quality < MaxQuality)
                                 {
                                     Increment_quality(item_index);
                                 }
                             }
 
-                            if (_items[item_index].SellIn <= 5)
+                            if (_items[item_index].SellIn <= SecondConcertQualityThreshold)
                             {
-                                if (_items[item_index].Quality < 50)
+                                if (_items[item_index].Quality < MaxQuality)
                                 {
                                     Increment_quality(item_index);
                                 }
@@ -71,7 +75,7 @@ namespace csharp
                     }
                     else
                     {
-                        if (_items[item_index].Quality < 50)
+                        if (_items[item_index].Quality < MaxQuality)
                         {
                             Increment_quality(item_index);
                         }
