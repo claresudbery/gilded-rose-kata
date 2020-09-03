@@ -29,7 +29,7 @@ namespace csharp
 
                         if (Item_is_backstage_pass(item_index))
                         {
-                            if (_items[item_index].SellIn < 11)
+                            if (_items[item_index].SellIn <= 10)
                             {
                                 if (_items[item_index].Quality < 50)
                                 {
@@ -37,7 +37,7 @@ namespace csharp
                                 }
                             }
 
-                            if (_items[item_index].SellIn < 6)
+                            if (_items[item_index].SellIn <= 5)
                             {
                                 if (_items[item_index].Quality < 50)
                                 {
