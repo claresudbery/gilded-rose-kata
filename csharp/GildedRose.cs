@@ -14,11 +14,11 @@ namespace csharp
         {
             for (var i = 0; i < Items.Count; i++)
             {
-                if (Items[i].Name != "Aged Brie" && !Items[i].Name.Contains("Backstage passes"))
+                if (Items[i].Name != ItemNames.AgedBrie && !Items[i].Name.Contains(ItemNames.BackstagePasses))
                 {
                     if (Items[i].Quality > 0)
                     {
-                        if (Items[i].Name != "Sulfuras, Hand of Ragnaros")
+                        if (Items[i].Name != ItemNames.Sulfuras)
                         {
                             Items[i].Quality = Items[i].Quality - 1;
                         }
@@ -30,7 +30,7 @@ namespace csharp
                     {
                         Items[i].Quality = Items[i].Quality + 1;
 
-                        if (Items[i].Name.Contains("Backstage passes"))
+                        if (Items[i].Name.Contains(ItemNames.BackstagePasses))
                         {
                             if (Items[i].SellIn < 11)
                             {
@@ -51,20 +51,20 @@ namespace csharp
                     }
                 }
 
-                if (Items[i].Name != "Sulfuras, Hand of Ragnaros")
+                if (Items[i].Name != ItemNames.Sulfuras)
                 {
                     Items[i].SellIn = Items[i].SellIn - 1;
                 }
 
                 if (Items[i].SellIn < 0)
                 {
-                    if (Items[i].Name != "Aged Brie")
+                    if (Items[i].Name != ItemNames.AgedBrie)
                     {
-                        if (!Items[i].Name.Contains("Backstage passes"))
+                        if (!Items[i].Name.Contains(ItemNames.BackstagePasses))
                         {
                             if (Items[i].Quality > 0)
                             {
-                                if (Items[i].Name != "Sulfuras, Hand of Ragnaros")
+                                if (Items[i].Name != ItemNames.Sulfuras)
                                 {
                                     Items[i].Quality = Items[i].Quality - 1;
                                 }
