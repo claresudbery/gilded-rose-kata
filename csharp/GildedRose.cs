@@ -21,6 +21,22 @@ namespace csharp
         {
             for (var item_index = 0; item_index < _items.Count; item_index++)
             {
+                if (Item_is_backstage_pass(item_index))
+                {
+                    _self_managing_items.Add(new BackstagePassItem(_items[item_index].SellIn, _items[item_index].Quality));
+                }
+                else if (Item_is_aged_brie(item_index))
+                {
+                    _self_managing_items.Add(new RegularItem(_items[item_index]));
+                }
+                else if (Item_is_legendary(item_index))
+                {
+                    _self_managing_items.Add(new RegularItem(_items[item_index]));
+                }
+                else if (Item_is_regular_item(item_index))
+                {
+                    _self_managing_items.Add(new RegularItem(_items[item_index]));
+                }
             }
         }
 
@@ -153,9 +169,14 @@ namespace csharp
             return !Item_is_backstage_pass(item_index);
         }
 
+        private bool Item_is_legendary(int item_index)
+        {
+            return _items[item_index].Name == ItemNames.Sulfuras;
+        }
+
         private bool Item_is_not_legendary(int item_index)
         {
-            return _items[item_index].Name != ItemNames.Sulfuras;
+            return !Item_is_legendary(item_index);
         }
     }
 }
