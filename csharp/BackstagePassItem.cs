@@ -16,6 +16,11 @@
             };
         }
 
+        public BackstagePassItem(Item item)
+        {
+            _item = item;
+        }
+
         public void Adjust_quality_if_sell_by_date_has_passed()
         {
             if (_item.SellIn < 0)

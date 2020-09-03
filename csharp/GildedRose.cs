@@ -23,7 +23,7 @@ namespace csharp
             {
                 if (Item_is_backstage_pass(item_index))
                 {
-                    _self_managing_items.Add(new BackstagePassItem(_items[item_index].SellIn, _items[item_index].Quality));
+                    _self_managing_items.Add(new BackstagePassItem(_items[item_index]));
                 }
                 else if (Item_is_aged_brie(item_index))
                 {
@@ -47,7 +47,10 @@ namespace csharp
                 Adjust_daily_quality_value(item_index);
 
                 Adjust_number_of_days_until_sell_by_date(item_index);
+            }
 
+            for (var item_index = 0; item_index < _items.Count; item_index++)
+            {
                 Adjust_quality_if_sell_by_date_has_passed(item_index);
             }
         }
@@ -75,24 +78,7 @@ namespace csharp
 
         private void Adjust_quality_if_sell_by_date_has_passed(int item_index)
         {
-            if (_items[item_index].SellIn < 0)
-            {
-                if (Item_is_aged_brie(item_index))
-                {
-                    Increment_quality(item_index);
-                }
-                else
-                {
-                    if (Item_is_backstage_pass(item_index))
-                    {
-                        Drop_quality_to_zero(item_index);
-                    }
-                    else
-                    {
-                        Decrement_quality(item_index);
-                    }
-                }
-            }
+            _self_managing_items[item_index].Adjust_quality_if_sell_by_date_has_passed();
         }
 
         private void Add_extra_quality_if_concert_date_is_near(int item_index)
