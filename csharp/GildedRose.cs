@@ -25,19 +25,7 @@ namespace csharp
                 else
                 {
                     Increment_quality(item_index);
-
-                    if (Item_is_backstage_pass(item_index))
-                    {
-                        if (_items[item_index].SellIn <= FirstConcertQualityThreshold)
-                        {
-                            Increment_quality(item_index);
-                        }
-
-                        if (_items[item_index].SellIn <= SecondConcertQualityThreshold)
-                        {
-                            Increment_quality(item_index);
-                        }
-                    }
+                    Add_extra_quality_if_concert_date_is_near(item_index);
                 }
 
                 if (Item_is_not_legendary(item_index))
@@ -62,6 +50,22 @@ namespace csharp
                     {
                         Increment_quality(item_index);
                     }
+                }
+            }
+        }
+
+        private void Add_extra_quality_if_concert_date_is_near(int item_index)
+        {
+            if (Item_is_backstage_pass(item_index))
+            {
+                if (_items[item_index].SellIn <= FirstConcertQualityThreshold)
+                {
+                    Increment_quality(item_index);
+                }
+
+                if (_items[item_index].SellIn <= SecondConcertQualityThreshold)
+                {
+                    Increment_quality(item_index);
                 }
             }
         }
