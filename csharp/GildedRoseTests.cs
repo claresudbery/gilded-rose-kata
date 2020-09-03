@@ -171,7 +171,7 @@ namespace csharp
         [TestCase(8)]
         [TestCase(7)]
         [TestCase(6)]
-        public void quality_of_backstage_pass_increases_by_two_each_day_between_ten_days_and_six_days_before_concert_date(int sellin)
+        public void Quality_of_backstage_pass_increases_by_two_each_day_between_ten_days_and_six_days_before_concert_date(int sellin)
         {
             const int InitialQualityValue = 10;
             IList<Item> items = new List<Item> { new Item { Name = ItemNames.BackstagePasses, SellIn = sellin, Quality = InitialQualityValue } };
@@ -185,7 +185,7 @@ namespace csharp
         [TestCase(3)]
         [TestCase(2)]
         [TestCase(1)]
-        public void quality_of_backstage_pass_increases_by_three_each_day_five_days_or_less_before_concert_date(int sellin)
+        public void Quality_of_backstage_pass_increases_by_three_each_day_five_days_or_less_before_concert_date(int sellin)
         {
             const int InitialQualityValue = 10;
             IList<Item> items = new List<Item> { new Item { Name = ItemNames.BackstagePasses, SellIn = sellin, Quality = InitialQualityValue } };
@@ -195,7 +195,7 @@ namespace csharp
         }
 
         [Test]
-        public void quality_of_backstage_pass_drops_to_zero_after_concert_date()
+        public void Quality_of_backstage_pass_drops_to_zero_after_concert_date()
         {
             const int InitialQualityValue = 10;
             const int PastConcertDate = 0;
