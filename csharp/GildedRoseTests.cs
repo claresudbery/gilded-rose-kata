@@ -28,16 +28,32 @@ namespace csharp
             Assert.AreEqual(ItemName, items[0].Name);
         }
 
-        [Test]
-        public void After_daily_update_SellIn_value_for_ordinary_item_goes_down_by_one()
+        [TestCase("+5 Dexterity Vest")]
+        [TestCase("Aged Brie")]
+        [TestCase("Elixir of the Mongoose")]
+        [TestCase("Sulfuras, Hand of Ragnaros")]
+        [TestCase("Backstage passes to a TAFKAL80ETC concert")]
+        [TestCase("Backstage passes to a Bob Marley concert")]
+        [TestCase("Backstage passes to a Jungle Boys concert")]
+        public void After_daily_update_SellIn_value_for_all_items__except_sulfuras_goes_down_by_one(string item_name)
         {
-            int initial_sellin_value_01 = _test_ordinary_item_01.SellIn;
-            int initial_sellin_value_02 = _test_ordinary_item_02.SellIn;
+            int initial_sellin_value = 10;
+            IList<Item> items = new List<Item> { new Item { Name = item_name, SellIn = initial_sellin_value, Quality = 20 } };
+            GildedRose app = new GildedRose(items);
+            app.UpdateQuality();
+            Assert.AreEqual(initial_sellin_value - 1, items[0].SellIn);
+        }
+
+        [Test]
+        public void After_daily_update_Quality_value_for_ordinary_items_goes_down_by_one()
+        {
+            int initial_quality_value_01 = _test_ordinary_item_01.Quality;
+            int initial_quality_value_02 = _test_ordinary_item_02.Quality;
             IList<Item> items = new List<Item> { _test_ordinary_item_01, _test_ordinary_item_02 };
             GildedRose app = new GildedRose(items);
             app.UpdateQuality();
-            Assert.AreEqual(initial_sellin_value_01 - 1, items[0].SellIn);
-            Assert.AreEqual(initial_sellin_value_02 - 1, items[1].SellIn);
+            Assert.AreEqual(initial_quality_value_01 - 1, items[0].Quality);
+            Assert.AreEqual(initial_quality_value_02 - 1, items[1].Quality);
         }
     }
 }
