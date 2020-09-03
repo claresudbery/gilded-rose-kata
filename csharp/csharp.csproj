@@ -61,6 +61,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AgedBrieItem.cs" />
     <Compile Include="ApprovalTest.cs" />
     <Compile Include="BackstagePassItem.cs" />
     <Compile Include="BackstagePassItemTests.cs" />

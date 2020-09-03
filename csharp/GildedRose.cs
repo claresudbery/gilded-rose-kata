@@ -35,7 +35,7 @@ namespace csharp
                 }
                 else if (Item_is_aged_brie(item_index))
                 {
-                    _self_managing_items.Add(new RegularItem(_items[item_index]));
+                    _self_managing_items.Add(new AgedBrieItem(_items[item_index]));
                 }
                 else if (Item_is_legendary(item_index))
                 {
