@@ -49,7 +49,7 @@ namespace csharp
                 {
                     if (Item_is_backstage_pass(item_index))
                     {
-                        _items[item_index].Quality = 0;
+                        Drop_quality_to_zero(item_index);
                     }
                     else
                     {
@@ -94,6 +94,11 @@ namespace csharp
             {
                 _items[item_index].Quality = _items[item_index].Quality - 1;
             }
+        }
+
+        private void Drop_quality_to_zero(int item_index)
+        {
+            _items[item_index].Quality = 0;
         }
 
         private bool Item_quality_decreases_with_age(int item_index)
