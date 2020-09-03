@@ -13,9 +13,16 @@
             _item = item;
         }
 
-        void Adjust_daily_quality_value()
+        public void Adjust_daily_quality_value()
         {
-
+            if (Item_quality_decreases_with_age())
+            {
+                Decrement_quality();
+            }
+            else
+            {
+                Increment_quality();
+            }
         }
 
         public void Adjust_number_of_days_until_sell_by_date()
@@ -44,6 +51,22 @@
         private bool Item_is_aged_brie()
         {
             return _item.Name == ItemNames.AgedBrie;
+        }
+
+        private bool Item_is_not_aged_brie()
+        {
+            return !Item_is_aged_brie();
+        }
+
+        private bool Item_is_regular_item()
+        {
+            return Item_is_not_aged_brie()
+                   && Item_is_not_legendary();
+        }
+
+        private bool Item_quality_decreases_with_age()
+        {
+            return Item_is_regular_item();
         }
 
         private void Increment_quality()
