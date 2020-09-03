@@ -4,82 +4,82 @@ namespace csharp
 {
     public class GildedRose
     {
-        IList<Item> Items;
-        public GildedRose(IList<Item> Items)
+        readonly IList<Item> _items;
+        public GildedRose(IList<Item> items)
         {
-            this.Items = Items;
+            _items = items;
         }
 
         public void UpdateQuality()
         {
-            for (var i = 0; i < Items.Count; i++)
+            for (var i = 0; i < _items.Count; i++)
             {
                 if (Item_quality_decreases_with_age(i))
                 {
-                    if (Items[i].Quality > 0)
+                    if (_items[i].Quality > 0)
                     {
-                        if (Items[i].Name != ItemNames.Sulfuras)
+                        if (_items[i].Name != ItemNames.Sulfuras)
                         {
-                            Items[i].Quality = Items[i].Quality - 1;
+                            _items[i].Quality = _items[i].Quality - 1;
                         }
                     }
                 }
                 else
                 {
-                    if (Items[i].Quality < 50)
+                    if (_items[i].Quality < 50)
                     {
-                        Items[i].Quality = Items[i].Quality + 1;
+                        _items[i].Quality = _items[i].Quality + 1;
 
-                        if (Items[i].Name.Contains(ItemNames.BackstagePasses))
+                        if (_items[i].Name.Contains(ItemNames.BackstagePasses))
                         {
-                            if (Items[i].SellIn < 11)
+                            if (_items[i].SellIn < 11)
                             {
-                                if (Items[i].Quality < 50)
+                                if (_items[i].Quality < 50)
                                 {
-                                    Items[i].Quality = Items[i].Quality + 1;
+                                    _items[i].Quality = _items[i].Quality + 1;
                                 }
                             }
 
-                            if (Items[i].SellIn < 6)
+                            if (_items[i].SellIn < 6)
                             {
-                                if (Items[i].Quality < 50)
+                                if (_items[i].Quality < 50)
                                 {
-                                    Items[i].Quality = Items[i].Quality + 1;
+                                    _items[i].Quality = _items[i].Quality + 1;
                                 }
                             }
                         }
                     }
                 }
 
-                if (Items[i].Name != ItemNames.Sulfuras)
+                if (_items[i].Name != ItemNames.Sulfuras)
                 {
-                    Items[i].SellIn = Items[i].SellIn - 1;
+                    _items[i].SellIn = _items[i].SellIn - 1;
                 }
 
-                if (Items[i].SellIn < 0)
+                if (_items[i].SellIn < 0)
                 {
-                    if (Items[i].Name != ItemNames.AgedBrie)
+                    if (_items[i].Name != ItemNames.AgedBrie)
                     {
-                        if (!Items[i].Name.Contains(ItemNames.BackstagePasses))
+                        if (!_items[i].Name.Contains(ItemNames.BackstagePasses))
                         {
-                            if (Items[i].Quality > 0)
+                            if (_items[i].Quality > 0)
                             {
-                                if (Items[i].Name != ItemNames.Sulfuras)
+                                if (_items[i].Name != ItemNames.Sulfuras)
                                 {
-                                    Items[i].Quality = Items[i].Quality - 1;
+                                    _items[i].Quality = _items[i].Quality - 1;
                                 }
                             }
                         }
                         else
                         {
-                            Items[i].Quality = Items[i].Quality - Items[i].Quality;
+                            _items[i].Quality = _items[i].Quality - _items[i].Quality;
                         }
                     }
                     else
                     {
-                        if (Items[i].Quality < 50)
+                        if (_items[i].Quality < 50)
                         {
-                            Items[i].Quality = Items[i].Quality + 1;
+                            _items[i].Quality = _items[i].Quality + 1;
                         }
                     }
                 }
@@ -88,7 +88,7 @@ namespace csharp
 
         private bool Item_quality_decreases_with_age(int item)
         {
-            return Items[item].Name != ItemNames.AgedBrie && !Items[item].Name.Contains(ItemNames.BackstagePasses);
+            return _items[item].Name != ItemNames.AgedBrie && !_items[item].Name.Contains(ItemNames.BackstagePasses);
         }
     }
 }
