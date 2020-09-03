@@ -65,16 +65,6 @@ namespace csharp
         }
 
         [Test]
-        public void Sulfuras_can_have_quality_above_50()
-        {
-            int quality_80 = 80;
-            IList<Item> items = new List<Item> { new Item { Name = ItemNames.Sulfuras, SellIn = 0, Quality = quality_80 } };
-            GildedRose app = new GildedRose(items);
-            app.UpdateQuality();
-            Assert.AreEqual(quality_80, items[0].Quality);
-        }
-
-        [Test]
         public void After_daily_update_Quality_value_for_ordinary_items_goes_down_by_one()
         {
             int initial_quality_value_01 = _test_ordinary_item_01.Quality;
@@ -90,10 +80,20 @@ namespace csharp
         public void After_daily_update_Quality_value_for_aged_brie_goes_up_by_one()
         {
             int initial_quality_value = _test_aged_brie.Quality;
-            IList<Item> items = new List<Item> { _test_aged_brie };
+            IList<Item> items = new List<Item> { new Item { Name = ItemNames.AgedBrie, SellIn = 20, Quality = initial_quality_value } };
             GildedRose app = new GildedRose(items);
             app.UpdateQuality();
             Assert.AreEqual(initial_quality_value + 1, items[0].Quality);
+        }
+
+        [Test]
+        public void Once_the_sell_by_date_has_passed_aged_brie_quality_goes_up_by_two_each_day()
+        {
+            int initial_quality_value = _test_aged_brie.Quality;
+            IList<Item> items = new List<Item> { new Item { Name = ItemNames.AgedBrie, SellIn = -2, Quality = initial_quality_value } };
+            GildedRose app = new GildedRose(items);
+            app.UpdateQuality();
+            Assert.AreEqual(initial_quality_value + 2, items[0].Quality);
         }
 
         [TestCase("+5 Dexterity Vest")]
