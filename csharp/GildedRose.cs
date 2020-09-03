@@ -14,7 +14,7 @@ namespace csharp
         {
             for (var i = 0; i < Items.Count; i++)
             {
-                if (Items[i].Name != ItemNames.AgedBrie && !Items[i].Name.Contains(ItemNames.BackstagePasses))
+                if (Item_quality_decreases_with_age(i))
                 {
                     if (Items[i].Quality > 0)
                     {
@@ -84,6 +84,11 @@ namespace csharp
                     }
                 }
             }
+        }
+
+        private bool Item_quality_decreases_with_age(int item)
+        {
+            return Items[item].Name != ItemNames.AgedBrie && !Items[item].Name.Contains(ItemNames.BackstagePasses);
         }
     }
 }
