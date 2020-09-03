@@ -96,6 +96,16 @@ namespace csharp
             Assert.AreEqual(initial_quality_value + 2, items[0].Quality);
         }
 
+        [Test]
+        public void Once_the_sell_by_date_has_passed_aged_brie_quality_will_not_go_above_50()
+        {
+            int initial_quality_value = 50;
+            IList<Item> items = new List<Item> { new Item { Name = ItemNames.AgedBrie, SellIn = -2, Quality = initial_quality_value } };
+            GildedRose app = new GildedRose(items);
+            app.UpdateQuality();
+            Assert.IsTrue(items[0].Quality <= 50);
+        }
+
         [TestCase("+5 Dexterity Vest")]
         [TestCase(ItemNames.AgedBrie)]
         [TestCase(ItemNames.Sulfuras)]
@@ -113,18 +123,19 @@ namespace csharp
             Assert.IsTrue(items[0].Quality <= 50);
         }
 
-        [TestCase("+5 Dexterity Vest")]
-        [TestCase(ItemNames.AgedBrie)]
-        [TestCase(ItemNames.Sulfuras)]
-        [TestCase("Elixir of the Mongoose")]
-        [TestCase("some miscellaneous item")]
-        [TestCase("Backstage passes to a TAFKAL80ETC concert")]
-        [TestCase("Backstage passes to a Bob Marley concert")]
-        [TestCase("Backstage passes to a Jungle Boys concert")]
-        public void The_quality_of_an_item_is_never_negative(string item_name)
+        [TestCase("+5 Dexterity Vest", 10)]
+        [TestCase(ItemNames.AgedBrie, 10)]
+        [TestCase(ItemNames.Sulfuras, 10)]
+        [TestCase("Elixir of the Mongoose", 10)]
+        [TestCase("some miscellaneous item", 10)]
+        [TestCase("some miscellaneous item", -2)]
+        [TestCase("Backstage passes to a TAFKAL80ETC concert", 10)]
+        [TestCase("Backstage passes to a Bob Marley concert", 10)]
+        [TestCase("Backstage passes to a Jungle Boys concert", 10)]
+        public void The_quality_of_an_item_is_never_negative(string item_name, int sellin)
         {
             int initial_quality_value = 0;
-            IList<Item> items = new List<Item> { new Item { Name = item_name, SellIn = 10, Quality = initial_quality_value } };
+            IList<Item> items = new List<Item> { new Item { Name = item_name, SellIn = sellin, Quality = initial_quality_value } };
             GildedRose app = new GildedRose(items);
             app.UpdateQuality();
             Assert.IsTrue(items[0].Quality >= 0);
