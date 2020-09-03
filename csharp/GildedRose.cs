@@ -35,7 +35,11 @@ namespace csharp
 
                 if (_items[item_index].SellIn < 0)
                 {
-                    if (Item_is_not_aged_brie(item_index))
+                    if (Item_is_aged_brie(item_index))
+                    {
+                        Increment_quality(item_index);
+                    }
+                    else
                     {
                         if (Item_is_not_backstage_pass(item_index))
                         {
@@ -45,10 +49,6 @@ namespace csharp
                         {
                             _items[item_index].Quality = 0;
                         }
-                    }
-                    else
-                    {
-                        Increment_quality(item_index);
                     }
                 }
             }
@@ -97,9 +97,14 @@ namespace csharp
                    && Item_is_not_backstage_pass(item_index);
         }
 
+        private bool Item_is_aged_brie(int item_index)
+        {
+            return _items[item_index].Name == ItemNames.AgedBrie;
+        }
+
         private bool Item_is_not_aged_brie(int item_index)
         {
-            return _items[item_index].Name != ItemNames.AgedBrie;
+            return !Item_is_aged_brie(item_index);
         }
 
         private bool Item_is_backstage_pass(int item_index)
