@@ -94,11 +94,6 @@ namespace csharp
             }
         }
 
-        private void Decrement_SellIn(int item_index)
-        {
-            _items[item_index].SellIn = _items[item_index].SellIn - 1;
-        }
-
         private void Increment_quality(int item_index)
         {
             if (_items[item_index].Quality < MaxQuality)
@@ -113,11 +108,6 @@ namespace csharp
             {
                 _items[item_index].Quality = _items[item_index].Quality - 1;
             }
-        }
-
-        private void Drop_quality_to_zero(int item_index)
-        {
-            _items[item_index].Quality = 0;
         }
 
         private bool Item_is_regular_item(int item_index)
