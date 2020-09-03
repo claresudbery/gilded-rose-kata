@@ -30,7 +30,7 @@ namespace csharp
                     {
                         _items[item_index].Quality = _items[item_index].Quality + 1;
 
-                        if (_items[item_index].Name.Contains(ItemNames.BackstagePasses))
+                        if (Item_is_backstage_pass(item_index))
                         {
                             if (_items[item_index].SellIn < 11)
                             {
@@ -58,9 +58,9 @@ namespace csharp
 
                 if (_items[item_index].SellIn < 0)
                 {
-                    if (_items[item_index].Name != ItemNames.AgedBrie)
+                    if (Item_is_not_aged_brie(item_index))
                     {
-                        if (!_items[item_index].Name.Contains(ItemNames.BackstagePasses))
+                        if (Item_is_not_backstage_pass(item_index))
                         {
                             if (_items[item_index].Quality > 0)
                             {
@@ -88,8 +88,23 @@ namespace csharp
 
         private bool Item_quality_decreases_with_age(int item_index)
         {
-            return _items[item_index].Name != ItemNames.AgedBrie 
-                   && !_items[item_index].Name.Contains(ItemNames.BackstagePasses);
+            return Item_is_not_aged_brie(item_index) 
+                   && Item_is_not_backstage_pass(item_index);
+        }
+
+        private bool Item_is_not_aged_brie(int item_index)
+        {
+            return _items[item_index].Name != ItemNames.AgedBrie;
+        }
+
+        private bool Item_is_backstage_pass(int item_index)
+        {
+            return _items[item_index].Name.Contains(ItemNames.BackstagePasses);
+        }
+
+        private bool Item_is_not_backstage_pass(int item_index)
+        {
+            return !Item_is_backstage_pass(item_index);
         }
     }
 }
