@@ -4,10 +4,6 @@ namespace csharp
 {
     public class GildedRose
     {
-        private const int FirstConcertQualityThreshold = 10;
-        private const int SecondConcertQualityThreshold = 5;
-        private const int MaxQuality = 50;
-
         readonly IList<Item> _items;
         readonly IList<IItem> _self_managing_items = new List<IItem>();
 
@@ -67,48 +63,11 @@ namespace csharp
             _self_managing_items[item_index].Adjust_quality_if_sell_by_date_has_passed();
         }
 
-        private void Add_extra_quality_if_concert_date_is_near(int item_index)
-        {
-            if (Item_is_backstage_pass(item_index))
-            {
-                if (_items[item_index].SellIn <= FirstConcertQualityThreshold)
-                {
-                    Increment_quality(item_index);
-                }
-
-                if (_items[item_index].SellIn <= SecondConcertQualityThreshold)
-                {
-                    Increment_quality(item_index);
-                }
-            }
-        }
-
-        private void Increment_quality(int item_index)
-        {
-            if (_items[item_index].Quality < MaxQuality)
-            {
-                _items[item_index].Quality = _items[item_index].Quality + 1;
-            }
-        }
-
-        private void Decrement_quality(int item_index)
-        {
-            if (_items[item_index].Quality > 0 && Item_is_not_legendary(item_index))
-            {
-                _items[item_index].Quality = _items[item_index].Quality - 1;
-            }
-        }
-
         private bool Item_is_regular_item(int item_index)
         {
             return Item_is_not_aged_brie(item_index)
                    && Item_is_not_backstage_pass(item_index)
                    && Item_is_not_legendary(item_index);
-        }
-
-        private bool Item_quality_decreases_with_age(int item_index)
-        {
-            return Item_is_regular_item(item_index);
         }
 
         private bool Item_is_aged_brie(int item_index)
