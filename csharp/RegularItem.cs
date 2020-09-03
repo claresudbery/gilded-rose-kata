@@ -48,14 +48,25 @@
             }
         }
 
-        private bool Item_is_aged_brie()
+        private void Decrement_SellIn()
         {
-            return _item.Name == ItemNames.AgedBrie;
+            _item.SellIn = _item.SellIn - 1;
         }
 
-        private bool Item_is_not_aged_brie()
+        private void Increment_quality()
         {
-            return !Item_is_aged_brie();
+            if (_item.Quality < MaxQuality)
+            {
+                _item.Quality = _item.Quality + 1;
+            }
+        }
+
+        private void Decrement_quality()
+        {
+            if (_item.Quality > 0 && Item_is_not_legendary())
+            {
+                _item.Quality = _item.Quality - 1;
+            }
         }
 
         private bool Item_is_regular_item()
@@ -69,25 +80,14 @@
             return Item_is_regular_item();
         }
 
-        private void Increment_quality()
+        private bool Item_is_aged_brie()
         {
-            if (_item.Quality < MaxQuality)
-            {
-                _item.Quality = _item.Quality + 1;
-            }
+            return _item.Name == ItemNames.AgedBrie;
         }
 
-        private void Decrement_SellIn()
+        private bool Item_is_not_aged_brie()
         {
-            _item.SellIn = _item.SellIn - 1;
-        }
-
-        private void Decrement_quality()
-        {
-            if (_item.Quality > 0 && Item_is_not_legendary())
-            {
-                _item.Quality = _item.Quality - 1;
-            }
+            return !Item_is_aged_brie();
         }
 
         private bool Item_is_not_legendary()
