@@ -20,7 +20,7 @@ namespace csharp
                     {
                         if (Item_is_not_sulfuras(item_index))
                         {
-                            _items[item_index].Quality = _items[item_index].Quality - 1;
+                            Decrement_quality(item_index);
                         }
                     }
                 }
@@ -28,7 +28,7 @@ namespace csharp
                 {
                     if (_items[item_index].Quality < 50)
                     {
-                        _items[item_index].Quality = _items[item_index].Quality + 1;
+                        Increment_quality(item_index);
 
                         if (Item_is_backstage_pass(item_index))
                         {
@@ -36,7 +36,7 @@ namespace csharp
                             {
                                 if (_items[item_index].Quality < 50)
                                 {
-                                    _items[item_index].Quality = _items[item_index].Quality + 1;
+                                    Increment_quality(item_index);
                                 }
                             }
 
@@ -44,7 +44,7 @@ namespace csharp
                             {
                                 if (_items[item_index].Quality < 50)
                                 {
-                                    _items[item_index].Quality = _items[item_index].Quality + 1;
+                                    Increment_quality(item_index);
                                 }
                             }
                         }
@@ -66,7 +66,7 @@ namespace csharp
                             {
                                 if (Item_is_not_sulfuras(item_index))
                                 {
-                                    _items[item_index].Quality = _items[item_index].Quality - 1;
+                                    Decrement_quality(item_index);
                                 }
                             }
                         }
@@ -79,11 +79,21 @@ namespace csharp
                     {
                         if (_items[item_index].Quality < 50)
                         {
-                            _items[item_index].Quality = _items[item_index].Quality + 1;
+                            Increment_quality(item_index);
                         }
                     }
                 }
             }
+        }
+
+        private void Increment_quality(int item_index)
+        {
+            _items[item_index].Quality = _items[item_index].Quality + 1;
+        }
+
+        private void Decrement_quality(int item_index)
+        {
+            _items[item_index].Quality = _items[item_index].Quality - 1;
         }
 
         private bool Item_quality_decreases_with_age(int item_index)
