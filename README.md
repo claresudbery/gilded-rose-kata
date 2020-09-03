@@ -55,3 +55,5 @@ To create a *group* exercise:
 I analysed this repo according to the clean code standards on [Better Code Hub](https://bettercodehub.com) just to get an independent opinion of how bad the code is. Perhaps unsurprisingly, the compliance score is low!
 
 [![BCH compliance](https://bettercodehub.com/edge/badge/emilybache/GildedRose-Refactoring-Kata?branch=master)](https://bettercodehub.com/) 
+
+(this readme was written by Emila Bache. Original repo here: https://github.com/emilybache/GildedRose-Refactoring-Kata)
