@@ -33,22 +33,27 @@ namespace csharp
                     Decrement_SellIn(item_index);
                 }
 
-                if (_items[item_index].SellIn < 0)
+                Adjust_quality_if_sell_by_date_has_passed(item_index);
+            }
+        }
+
+        private void Adjust_quality_if_sell_by_date_has_passed(int item_index)
+        {
+            if (_items[item_index].SellIn < 0)
+            {
+                if (Item_is_aged_brie(item_index))
                 {
-                    if (Item_is_aged_brie(item_index))
+                    Increment_quality(item_index);
+                }
+                else
+                {
+                    if (Item_is_backstage_pass(item_index))
                     {
-                        Increment_quality(item_index);
+                        _items[item_index].Quality = 0;
                     }
                     else
                     {
-                        if (Item_is_backstage_pass(item_index))
-                        {
-                            _items[item_index].Quality = 0;
-                        }
-                        else
-                        {
-                            Decrement_quality(item_index);
-                        }
+                        Decrement_quality(item_index);
                     }
                 }
             }
