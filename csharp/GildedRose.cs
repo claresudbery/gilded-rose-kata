@@ -9,10 +9,19 @@ namespace csharp
         private const int MaxQuality = 50;
 
         readonly IList<Item> _items;
+        readonly IList<IItem> _self_managing_items = new List<IItem>();
 
         public GildedRose(IList<Item> items)
         {
             _items = items;
+            Build_self_managing_items(_items);
+        }
+
+        private void Build_self_managing_items(IList<Item> items)
+        {
+            for (var item_index = 0; item_index < _items.Count; item_index++)
+            {
+            }
         }
 
         public void UpdateQuality()
@@ -112,10 +121,16 @@ namespace csharp
             _items[item_index].Quality = 0;
         }
 
+        private bool Item_is_regular_item(int item_index)
+        {
+            return Item_is_not_aged_brie(item_index)
+                   && Item_is_not_backstage_pass(item_index)
+                   && Item_is_not_legendary(item_index);
+        }
+
         private bool Item_quality_decreases_with_age(int item_index)
         {
-            return Item_is_not_aged_brie(item_index) 
-                   && Item_is_not_backstage_pass(item_index);
+            return Item_is_regular_item(item_index);
         }
 
         private bool Item_is_aged_brie(int item_index)
