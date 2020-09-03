@@ -20,7 +20,7 @@ namespace csharp
             {
                 Adjust_daily_quality_value(item_index);
 
-                Adjust_number_of_days_to_sell_by_date(item_index);
+                Adjust_number_of_days_until_sell_by_date(item_index);
 
                 Adjust_quality_if_sell_by_date_has_passed(item_index);
             }
@@ -39,7 +39,7 @@ namespace csharp
             }
         }
 
-        private void Adjust_number_of_days_to_sell_by_date(int item_index)
+        private void Adjust_number_of_days_until_sell_by_date(int item_index)
         {
             if (Item_is_not_legendary(item_index))
             {
