@@ -41,7 +41,7 @@ namespace csharp
                 {
                     _self_managing_items.Add(new LegendaryItem(_items[item_index]));
                 }
-                else if (Item_is_regular_item(item_index))
+                else 
                 {
                     _self_managing_items.Add(new RegularItem(_items[item_index]));
                 }
@@ -63,21 +63,9 @@ namespace csharp
             _self_managing_items[item_index].Adjust_quality_if_sell_by_date_has_passed();
         }
 
-        private bool Item_is_regular_item(int item_index)
-        {
-            return Item_is_not_aged_brie(item_index)
-                   && Item_is_not_backstage_pass(item_index)
-                   && Item_is_not_legendary(item_index);
-        }
-
         private bool Item_is_aged_brie(int item_index)
         {
             return _items[item_index].Name == ItemNames.AgedBrie;
-        }
-
-        private bool Item_is_not_aged_brie(int item_index)
-        {
-            return !Item_is_aged_brie(item_index);
         }
 
         private bool Item_is_backstage_pass(int item_index)
@@ -85,19 +73,9 @@ namespace csharp
             return _items[item_index].Name.Contains(ItemNames.BackstagePasses);
         }
 
-        private bool Item_is_not_backstage_pass(int item_index)
-        {
-            return !Item_is_backstage_pass(item_index);
-        }
-
         private bool Item_is_legendary(int item_index)
         {
             return _items[item_index].Name == ItemNames.Sulfuras;
-        }
-
-        private bool Item_is_not_legendary(int item_index)
-        {
-            return !Item_is_legendary(item_index);
         }
     }
 }

@@ -2,8 +2,6 @@
 {
     internal class RegularItem : IItem
     {
-        private const int MaxQuality = 50;
-
         private Item _item;
         public int Quality => _item.Quality;
         public int SellIn => _item.SellIn;
@@ -20,10 +18,7 @@
 
         public void Adjust_number_of_days_until_sell_by_date()
         {
-            if (Item_is_not_legendary())
-            {
-                Decrement_SellIn();
-            }
+            Decrement_SellIn();
         }
 
         public void Adjust_quality_if_sell_by_date_has_passed()
@@ -41,15 +36,10 @@
 
         private void Decrement_quality()
         {
-            if (_item.Quality > 0 && Item_is_not_legendary())
+            if (_item.Quality > 0)
             {
                 _item.Quality = _item.Quality - 1;
             }
-        }
-
-        private bool Item_is_not_legendary()
-        {
-            return _item.Name != ItemNames.Sulfuras;
         }
     }
 }
