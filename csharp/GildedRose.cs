@@ -28,12 +28,17 @@ namespace csharp
                     Add_extra_quality_if_concert_date_is_near(item_index);
                 }
 
-                if (Item_is_not_legendary(item_index))
-                {
-                    Decrement_SellIn(item_index);
-                }
+                Adjust_number_of_days_to_sell_by_date(item_index);
 
                 Adjust_quality_if_sell_by_date_has_passed(item_index);
+            }
+        }
+
+        private void Adjust_number_of_days_to_sell_by_date(int item_index)
+        {
+            if (Item_is_not_legendary(item_index))
+            {
+                Decrement_SellIn(item_index);
             }
         }
 
