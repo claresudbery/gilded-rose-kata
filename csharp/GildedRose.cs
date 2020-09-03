@@ -18,7 +18,7 @@ namespace csharp
                 {
                     if (_items[item_index].Quality > 0)
                     {
-                        if (Item_is_not_sulfuras(item_index))
+                        if (Item_is_not_legendary(item_index))
                         {
                             Decrement_quality(item_index);
                         }
@@ -51,7 +51,7 @@ namespace csharp
                     }
                 }
 
-                if (Item_is_not_sulfuras(item_index))
+                if (Item_is_not_legendary(item_index))
                 {
                     Decrement_SellIn(item_index);
                 }
@@ -64,7 +64,7 @@ namespace csharp
                         {
                             if (_items[item_index].Quality > 0)
                             {
-                                if (Item_is_not_sulfuras(item_index))
+                                if (Item_is_not_legendary(item_index))
                                 {
                                     Decrement_quality(item_index);
                                 }
@@ -122,7 +122,7 @@ namespace csharp
             return !Item_is_backstage_pass(item_index);
         }
 
-        private bool Item_is_not_sulfuras(int item_index)
+        private bool Item_is_not_legendary(int item_index)
         {
             return _items[item_index].Name != ItemNames.Sulfuras;
         }
