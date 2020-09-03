@@ -2,8 +2,6 @@
 {
     public class AgedBrieItem : IItem
     {
-        private const int FirstConcertQualityThreshold = 10;
-        private const int SecondConcertQualityThreshold = 5;
         private const int MaxQuality = 50;
 
         private Item _item;
