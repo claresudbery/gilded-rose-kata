@@ -41,13 +41,13 @@ namespace csharp
                     }
                     else
                     {
-                        if (Item_is_not_backstage_pass(item_index))
+                        if (Item_is_backstage_pass(item_index))
                         {
-                            Decrement_quality(item_index);
+                            _items[item_index].Quality = 0;
                         }
                         else
                         {
-                            _items[item_index].Quality = 0;
+                            Decrement_quality(item_index);
                         }
                     }
                 }
