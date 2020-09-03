@@ -18,19 +18,24 @@ namespace csharp
         {
             for (var item_index = 0; item_index < _items.Count; item_index++)
             {
-                if (Item_quality_decreases_with_age(item_index))
-                {
-                    Decrement_quality(item_index);
-                }
-                else
-                {
-                    Increment_quality(item_index);
-                    Add_extra_quality_if_concert_date_is_near(item_index);
-                }
+                Adjust_daily_quality_value(item_index);
 
                 Adjust_number_of_days_to_sell_by_date(item_index);
 
                 Adjust_quality_if_sell_by_date_has_passed(item_index);
+            }
+        }
+
+        private void Adjust_daily_quality_value(int item_index)
+        {
+            if (Item_quality_decreases_with_age(item_index))
+            {
+                Decrement_quality(item_index);
+            }
+            else
+            {
+                Increment_quality(item_index);
+                Add_extra_quality_if_concert_date_is_near(item_index);
             }
         }
 
