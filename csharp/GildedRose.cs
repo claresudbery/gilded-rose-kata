@@ -39,7 +39,7 @@ namespace csharp
                 }
                 else if (Item_is_legendary(item_index))
                 {
-                    _self_managing_items.Add(new RegularItem(_items[item_index]));
+                    _self_managing_items.Add(new LegendaryItem(_items[item_index]));
                 }
                 else if (Item_is_regular_item(item_index))
                 {
