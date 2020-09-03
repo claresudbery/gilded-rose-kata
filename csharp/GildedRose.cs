@@ -27,27 +27,18 @@ namespace csharp
                 }
                 else
                 {
-                    if (_items[item_index].Quality < MaxQuality)
+                    Increment_quality(item_index);
+
+                    if (Item_is_backstage_pass(item_index))
                     {
-                        Increment_quality(item_index);
-
-                        if (Item_is_backstage_pass(item_index))
+                        if (_items[item_index].SellIn <= FirstConcertQualityThreshold)
                         {
-                            if (_items[item_index].SellIn <= FirstConcertQualityThreshold)
-                            {
-                                if (_items[item_index].Quality < MaxQuality)
-                                {
-                                    Increment_quality(item_index);
-                                }
-                            }
+                            Increment_quality(item_index);
+                        }
 
-                            if (_items[item_index].SellIn <= SecondConcertQualityThreshold)
-                            {
-                                if (_items[item_index].Quality < MaxQuality)
-                                {
-                                    Increment_quality(item_index);
-                                }
-                            }
+                        if (_items[item_index].SellIn <= SecondConcertQualityThreshold)
+                        {
+                            Increment_quality(item_index);
                         }
                     }
                 }
@@ -75,10 +66,7 @@ namespace csharp
                     }
                     else
                     {
-                        if (_items[item_index].Quality < MaxQuality)
-                        {
-                            Increment_quality(item_index);
-                        }
+                        Increment_quality(item_index);
                     }
                 }
             }
@@ -91,7 +79,10 @@ namespace csharp
 
         private void Increment_quality(int item_index)
         {
-            _items[item_index].Quality = _items[item_index].Quality + 1;
+            if (_items[item_index].Quality < MaxQuality)
+            {
+                _items[item_index].Quality = _items[item_index].Quality + 1;
+            }
         }
 
         private void Decrement_quality(int item_index)
