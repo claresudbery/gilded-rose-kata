@@ -14,14 +14,11 @@ namespace csharp
         {
             for (var item_index = 0; item_index < _items.Count; item_index++)
             {
-                if (Item_quality_decreases_with_age(item_index))
+                if (Item_quality_decreases_with_age(item_index) && Item_is_not_legendary(item_index))
                 {
                     if (_items[item_index].Quality > 0)
                     {
-                        if (Item_is_not_legendary(item_index))
-                        {
-                            Decrement_quality(item_index);
-                        }
+                        Decrement_quality(item_index);
                     }
                 }
                 else
@@ -62,12 +59,9 @@ namespace csharp
                     {
                         if (Item_is_not_backstage_pass(item_index))
                         {
-                            if (_items[item_index].Quality > 0)
+                            if (_items[item_index].Quality > 0 && Item_is_not_legendary(item_index))
                             {
-                                if (Item_is_not_legendary(item_index))
-                                {
-                                    Decrement_quality(item_index);
-                                }
+                                Decrement_quality(item_index);
                             }
                         }
                         else
