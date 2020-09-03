@@ -12,83 +12,84 @@ namespace csharp
 
         public void UpdateQuality()
         {
-            for (var i = 0; i < _items.Count; i++)
+            for (var item_index = 0; item_index < _items.Count; item_index++)
             {
-                if (Item_quality_decreases_with_age(i))
+                if (Item_quality_decreases_with_age(item_index))
                 {
-                    if (_items[i].Quality > 0)
+                    if (_items[item_index].Quality > 0)
                     {
-                        if (_items[i].Name != ItemNames.Sulfuras)
+                        if (_items[item_index].Name != ItemNames.Sulfuras)
                         {
-                            _items[i].Quality = _items[i].Quality - 1;
+                            _items[item_index].Quality = _items[item_index].Quality - 1;
                         }
                     }
                 }
                 else
                 {
-                    if (_items[i].Quality < 50)
+                    if (_items[item_index].Quality < 50)
                     {
-                        _items[i].Quality = _items[i].Quality + 1;
+                        _items[item_index].Quality = _items[item_index].Quality + 1;
 
-                        if (_items[i].Name.Contains(ItemNames.BackstagePasses))
+                        if (_items[item_index].Name.Contains(ItemNames.BackstagePasses))
                         {
-                            if (_items[i].SellIn < 11)
+                            if (_items[item_index].SellIn < 11)
                             {
-                                if (_items[i].Quality < 50)
+                                if (_items[item_index].Quality < 50)
                                 {
-                                    _items[i].Quality = _items[i].Quality + 1;
+                                    _items[item_index].Quality = _items[item_index].Quality + 1;
                                 }
                             }
 
-                            if (_items[i].SellIn < 6)
+                            if (_items[item_index].SellIn < 6)
                             {
-                                if (_items[i].Quality < 50)
+                                if (_items[item_index].Quality < 50)
                                 {
-                                    _items[i].Quality = _items[i].Quality + 1;
+                                    _items[item_index].Quality = _items[item_index].Quality + 1;
                                 }
                             }
                         }
                     }
                 }
 
-                if (_items[i].Name != ItemNames.Sulfuras)
+                if (_items[item_index].Name != ItemNames.Sulfuras)
                 {
-                    _items[i].SellIn = _items[i].SellIn - 1;
+                    _items[item_index].SellIn = _items[item_index].SellIn - 1;
                 }
 
-                if (_items[i].SellIn < 0)
+                if (_items[item_index].SellIn < 0)
                 {
-                    if (_items[i].Name != ItemNames.AgedBrie)
+                    if (_items[item_index].Name != ItemNames.AgedBrie)
                     {
-                        if (!_items[i].Name.Contains(ItemNames.BackstagePasses))
+                        if (!_items[item_index].Name.Contains(ItemNames.BackstagePasses))
                         {
-                            if (_items[i].Quality > 0)
+                            if (_items[item_index].Quality > 0)
                             {
-                                if (_items[i].Name != ItemNames.Sulfuras)
+                                if (_items[item_index].Name != ItemNames.Sulfuras)
                                 {
-                                    _items[i].Quality = _items[i].Quality - 1;
+                                    _items[item_index].Quality = _items[item_index].Quality - 1;
                                 }
                             }
                         }
                         else
                         {
-                            _items[i].Quality = _items[i].Quality - _items[i].Quality;
+                            _items[item_index].Quality = _items[item_index].Quality - _items[item_index].Quality;
                         }
                     }
                     else
                     {
-                        if (_items[i].Quality < 50)
+                        if (_items[item_index].Quality < 50)
                         {
-                            _items[i].Quality = _items[i].Quality + 1;
+                            _items[item_index].Quality = _items[item_index].Quality + 1;
                         }
                     }
                 }
             }
         }
 
-        private bool Item_quality_decreases_with_age(int item)
+        private bool Item_quality_decreases_with_age(int item_index)
         {
-            return _items[item].Name != ItemNames.AgedBrie && !_items[item].Name.Contains(ItemNames.BackstagePasses);
+            return _items[item_index].Name != ItemNames.AgedBrie 
+                   && !_items[item_index].Name.Contains(ItemNames.BackstagePasses);
         }
     }
 }
