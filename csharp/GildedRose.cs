@@ -13,6 +13,18 @@ namespace csharp
             Build_self_managing_items(_items);
         }
 
+        public void UpdateQuality()
+        {
+            for (var item_index = 0; item_index < _items.Count; item_index++)
+            {
+                Adjust_daily_quality_value(item_index);
+
+                Adjust_number_of_days_until_sell_by_date(item_index);
+
+                Adjust_quality_if_sell_by_date_has_passed(item_index);
+            }
+        }
+
         private void Build_self_managing_items(IList<Item> items)
         {
             for (var item_index = 0; item_index < _items.Count; item_index++)
@@ -33,18 +45,6 @@ namespace csharp
                 {
                     _self_managing_items.Add(new RegularItem(_items[item_index]));
                 }
-            }
-        }
-
-        public void UpdateQuality()
-        {
-            for (var item_index = 0; item_index < _items.Count; item_index++)
-            {
-                Adjust_daily_quality_value(item_index);
-
-                Adjust_number_of_days_until_sell_by_date(item_index);
-
-                Adjust_quality_if_sell_by_date_has_passed(item_index);
             }
         }
 
