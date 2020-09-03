@@ -5,5 +5,6 @@
         int Quality { get; }
         int SellIn { get; }
         void Adjust_quality_if_sell_by_date_has_passed();
+        void Adjust_number_of_days_until_sell_by_date();
     };
 }

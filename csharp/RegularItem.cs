@@ -35,6 +35,14 @@
             }
         }
 
+        public void Adjust_number_of_days_until_sell_by_date()
+        {
+            if (Item_is_not_legendary())
+            {
+                Decrement_SellIn();
+            }
+        }
+
         private bool Item_is_aged_brie()
         {
             return _item.Name == ItemNames.AgedBrie;
@@ -46,6 +54,11 @@
             {
                 _item.Quality = _item.Quality + 1;
             }
+        }
+
+        private void Decrement_SellIn()
+        {
+            _item.SellIn = _item.SellIn - 1;
         }
 
         private bool Item_is_backstage_pass()

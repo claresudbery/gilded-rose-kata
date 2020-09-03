@@ -45,12 +45,12 @@ namespace csharp
             for (var item_index = 0; item_index < _items.Count; item_index++)
             {
                 Adjust_daily_quality_value(item_index);
-
-                Adjust_number_of_days_until_sell_by_date(item_index);
             }
 
             for (var item_index = 0; item_index < _items.Count; item_index++)
             {
+                Adjust_number_of_days_until_sell_by_date(item_index);
+
                 Adjust_quality_if_sell_by_date_has_passed(item_index);
             }
         }
@@ -70,10 +70,7 @@ namespace csharp
 
         private void Adjust_number_of_days_until_sell_by_date(int item_index)
         {
-            if (Item_is_not_legendary(item_index))
-            {
-                Decrement_SellIn(item_index);
-            }
+            _self_managing_items[item_index].Adjust_number_of_days_until_sell_by_date();
         }
 
         private void Adjust_quality_if_sell_by_date_has_passed(int item_index)

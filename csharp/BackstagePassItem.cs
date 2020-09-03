@@ -28,5 +28,15 @@
                 _item.Quality = 0;
             }
         }
+
+        public void Adjust_number_of_days_until_sell_by_date()
+        {
+            Decrement_SellIn();
+        }
+
+        private void Decrement_SellIn()
+        {
+            _item.SellIn = _item.SellIn - 1;
+        }
     }
 }
