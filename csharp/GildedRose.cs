@@ -45,10 +45,7 @@ namespace csharp
             for (var item_index = 0; item_index < _items.Count; item_index++)
             {
                 Adjust_daily_quality_value(item_index);
-            }
 
-            for (var item_index = 0; item_index < _items.Count; item_index++)
-            {
                 Adjust_number_of_days_until_sell_by_date(item_index);
 
                 Adjust_quality_if_sell_by_date_has_passed(item_index);
@@ -57,15 +54,7 @@ namespace csharp
 
         private void Adjust_daily_quality_value(int item_index)
         {
-            if (Item_quality_decreases_with_age(item_index))
-            {
-                Decrement_quality(item_index);
-            }
-            else
-            {
-                Increment_quality(item_index);
-                Add_extra_quality_if_concert_date_is_near(item_index);
-            }
+            _self_managing_items[item_index].Adjust_daily_quality_value();
         }
 
         private void Adjust_number_of_days_until_sell_by_date(int item_index)
