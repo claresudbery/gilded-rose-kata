@@ -36,14 +36,7 @@
                 }
                 else
                 {
-                    if (Item_is_backstage_pass())
-                    {
-                        Drop_quality_to_zero();
-                    }
-                    else
-                    {
-                        Decrement_quality();
-                    }
+                    Decrement_quality();
                 }
             }
         }
@@ -64,16 +57,6 @@
         private void Decrement_SellIn()
         {
             _item.SellIn = _item.SellIn - 1;
-        }
-
-        private bool Item_is_backstage_pass()
-        {
-            return _item.Name.Contains(ItemNames.BackstagePasses);
-        }
-
-        private void Drop_quality_to_zero()
-        {
-            _item.Quality = 0;
         }
 
         private void Decrement_quality()
