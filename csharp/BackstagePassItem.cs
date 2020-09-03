@@ -1,9 +1,10 @@
 ﻿namespace csharp
 {
-    public class BackstagePassItem
+    public class BackstagePassItem : IItem
     {
         private Item _item;
         public int Quality => _item.Quality;
+        public int SellIn => _item.SellIn;
 
         public BackstagePassItem(int sell_in, int quality)
         {

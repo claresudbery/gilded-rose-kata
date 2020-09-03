@@ -9,6 +9,7 @@ namespace csharp
         private const int MaxQuality = 50;
 
         readonly IList<Item> _items;
+
         public GildedRose(IList<Item> items)
         {
             _items = items;
