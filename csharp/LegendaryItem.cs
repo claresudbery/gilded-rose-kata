@@ -29,7 +29,7 @@
         {
         }
 
-        public void Adjust_quality_if_sell_by_date_has_passed()
+        public void Adjust_quality_after_sell_by_date_has_passed()
         {
         }
     }

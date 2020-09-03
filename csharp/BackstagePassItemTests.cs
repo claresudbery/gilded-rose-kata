@@ -11,7 +11,7 @@ namespace csharp
             const int InitialQualityValue = 10;
             const int PastConcertDate = -1;
             BackstagePassItem backstage_pass_item = new BackstagePassItem(PastConcertDate, InitialQualityValue);
-            backstage_pass_item.Adjust_quality_if_sell_by_date_has_passed();
+            backstage_pass_item.Adjust_quality_after_sell_by_date_has_passed();
             Assert.AreEqual(0, backstage_pass_item.Quality);
         }
     }

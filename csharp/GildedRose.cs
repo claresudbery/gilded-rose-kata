@@ -60,7 +60,10 @@ namespace csharp
 
         private void Adjust_quality_if_sell_by_date_has_passed(int item_index)
         {
-            _self_managing_items[item_index].Adjust_quality_if_sell_by_date_has_passed();
+            if (_self_managing_items[item_index].SellIn < 0)
+            {
+                _self_managing_items[item_index].Adjust_quality_after_sell_by_date_has_passed();
+            }
         }
 
         private bool Item_is_aged_brie(int item_index)

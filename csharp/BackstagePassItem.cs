@@ -36,12 +36,9 @@
             Decrement_SellIn();
         }
 
-        public void Adjust_quality_if_sell_by_date_has_passed()
+        public void Adjust_quality_after_sell_by_date_has_passed()
         {
-            if (_item.SellIn < 0)
-            {
-                _item.Quality = 0;
-            }
+            _item.Quality = 0;
         }
 
         private void Add_extra_quality_if_concert_date_is_near()
