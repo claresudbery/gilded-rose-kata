@@ -18,7 +18,7 @@ namespace csharp
                 {
                     if (_items[item_index].Quality > 0)
                     {
-                        if (_items[item_index].Name != ItemNames.Sulfuras)
+                        if (Item_is_not_sulfuras(item_index))
                         {
                             _items[item_index].Quality = _items[item_index].Quality - 1;
                         }
@@ -51,7 +51,7 @@ namespace csharp
                     }
                 }
 
-                if (_items[item_index].Name != ItemNames.Sulfuras)
+                if (Item_is_not_sulfuras(item_index))
                 {
                     _items[item_index].SellIn = _items[item_index].SellIn - 1;
                 }
@@ -64,7 +64,7 @@ namespace csharp
                         {
                             if (_items[item_index].Quality > 0)
                             {
-                                if (_items[item_index].Name != ItemNames.Sulfuras)
+                                if (Item_is_not_sulfuras(item_index))
                                 {
                                     _items[item_index].Quality = _items[item_index].Quality - 1;
                                 }
@@ -105,6 +105,11 @@ namespace csharp
         private bool Item_is_not_backstage_pass(int item_index)
         {
             return !Item_is_backstage_pass(item_index);
+        }
+
+        private bool Item_is_not_sulfuras(int item_index)
+        {
+            return _items[item_index].Name != ItemNames.Sulfuras;
         }
     }
 }
