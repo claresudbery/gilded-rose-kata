@@ -53,7 +53,7 @@ namespace csharp
 
                 if (Item_is_not_sulfuras(item_index))
                 {
-                    _items[item_index].SellIn = _items[item_index].SellIn - 1;
+                    Decrement_SellIn(item_index);
                 }
 
                 if (_items[item_index].SellIn < 0)
@@ -72,7 +72,7 @@ namespace csharp
                         }
                         else
                         {
-                            _items[item_index].Quality = _items[item_index].Quality - _items[item_index].Quality;
+                            _items[item_index].Quality = 0;
                         }
                     }
                     else
@@ -84,6 +84,11 @@ namespace csharp
                     }
                 }
             }
+        }
+
+        private void Decrement_SellIn(int item_index)
+        {
+            _items[item_index].SellIn = _items[item_index].SellIn - 1;
         }
 
         private void Increment_quality(int item_index)
