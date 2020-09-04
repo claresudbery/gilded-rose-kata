@@ -13,30 +13,17 @@
 
         public void Adjust_daily_quality_value()
         {
-            Decrement_quality();
+            _item.Decrement_quality();
         }
 
         public void Adjust_number_of_days_until_sell_by_date()
         {
-            Decrement_SellIn();
+            _item.Decrement_sellIn();
         }
 
         public void Adjust_quality_after_sell_by_date_has_passed()
         {
-            Decrement_quality();
-        }
-
-        private void Decrement_SellIn()
-        {
-            _item.SellIn = _item.SellIn - 1;
-        }
-
-        private void Decrement_quality()
-        {
-            if (_item.Quality > Qualities.Min)
-            {
-                _item.Quality = _item.Quality - 1;
-            }
+            _item.Decrement_quality();
         }
     }
 }

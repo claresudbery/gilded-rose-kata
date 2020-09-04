@@ -23,13 +23,13 @@
 
         public void Adjust_daily_quality_value()
         {
-            Increment_quality();
+            _item.Increment_quality();
             Add_extra_quality_if_concert_date_is_near();
         }
 
         public void Adjust_number_of_days_until_sell_by_date()
         {
-            Decrement_SellIn();
+            _item.Decrement_sellIn();
         }
 
         public void Adjust_quality_after_sell_by_date_has_passed()
@@ -41,25 +41,12 @@
         {
             if (_item.SellIn <= Qualities.FirstConcertThreshold)
             {
-                Increment_quality();
+                _item.Increment_quality();
             }
 
             if (_item.SellIn <= Qualities.SecondConcertThreshold)
             {
-                Increment_quality();
-            }
-        }
-
-        private void Decrement_SellIn()
-        {
-            _item.SellIn = _item.SellIn - 1;
-        }
-
-        private void Increment_quality()
-        {
-            if (_item.Quality < Qualities.Max)
-            {
-                _item.Quality = _item.Quality + 1;
+                _item.Increment_quality();
             }
         }
     }
