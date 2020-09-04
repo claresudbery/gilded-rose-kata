@@ -11,7 +11,7 @@
             _item = item;
         }
 
-        public BackstagePassItem(int sell_in, int quality, string name_suffix)
+        public BackstagePassItem(string name_suffix, int sell_in, int quality)
         {
             _item = new Item
             {
@@ -35,6 +35,11 @@
         public void Update_quality_after_sell_by_date_has_passed()
         {
             _item.Quality = 0;
+        }
+
+        public override string ToString()
+        {
+            return _item.ToString();
         }
 
         private void Add_extra_quality_if_concert_date_is_near()

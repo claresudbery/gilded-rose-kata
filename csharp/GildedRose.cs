@@ -13,9 +13,14 @@ namespace csharp
             Build_self_managing_items(_items);
         }
 
+        public GildedRose(IList<IItem> self_managing_items)
+        {
+            _self_managing_items = self_managing_items;
+        }
+
         public void UpdateQuality()
         {
-            for (var item_index = 0; item_index < _items.Count; item_index++)
+            for (var item_index = 0; item_index < _self_managing_items.Count; item_index++)
             {
                 Update_daily_quality_value(item_index);
 

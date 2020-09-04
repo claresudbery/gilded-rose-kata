@@ -32,5 +32,10 @@
         public void Update_quality_after_sell_by_date_has_passed()
         {
         }
+
+        public override string ToString()
+        {
+            return _item.ToString();
+        }
     }
 }

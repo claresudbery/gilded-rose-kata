@@ -11,6 +11,16 @@
             _item = item;
         }
 
+        public RegularItem(string name, int sell_in, int quality)
+        {
+            _item = new Item
+            {
+                Name = name,
+                SellIn = sell_in,
+                Quality = quality
+            };
+        }
+
         public void Update_daily_quality_value()
         {
             _item.Decrement_quality();
@@ -24,6 +34,11 @@
         public void Update_quality_after_sell_by_date_has_passed()
         {
             _item.Decrement_quality();
+        }
+
+        public override string ToString()
+        {
+            return _item.ToString();
         }
     }
 }

@@ -35,5 +35,10 @@
         {
             _item.Increment_quality();
         }
+
+        public override string ToString()
+        {
+            return _item.ToString();
+        }
     }
 }
