@@ -6,6 +6,11 @@
         public int Quality => _item.Quality;
         public int SellIn => _item.SellIn;
 
+        public AgedBrieItem(Item item)
+        {
+            _item = item;
+        }
+
         public AgedBrieItem(int sell_in, int quality)
         {
             _item = new Item
@@ -14,11 +19,6 @@
                 SellIn = sell_in,
                 Quality = quality
             };
-        }
-
-        public AgedBrieItem(Item item)
-        {
-            _item = item;
         }
 
         public void Update_daily_quality_value()

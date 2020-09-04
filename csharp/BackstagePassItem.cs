@@ -6,19 +6,19 @@
         public int Quality => _item.Quality;
         public int SellIn => _item.SellIn;
 
-        public BackstagePassItem(int sell_in, int quality)
-        {
-            _item = new Item
-            {
-                Name = ItemNames.BackstagePasses, 
-                SellIn = sell_in, 
-                Quality = quality
-            };
-        }
-
         public BackstagePassItem(Item item)
         {
             _item = item;
+        }
+
+        public BackstagePassItem(int sell_in, int quality, string name_suffix)
+        {
+            _item = new Item
+            {
+                Name = $"{ItemNames.BackstagePasses}{name_suffix}",
+                SellIn = sell_in,
+                Quality = quality
+            };
         }
 
         public void Update_daily_quality_value()
