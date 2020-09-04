@@ -5,17 +5,12 @@ using System.Collections.Generic;
 namespace csharp
 {
     [TestFixture]
-    public class GildedRoseTests
+    public class GildedRoseItemTests
     {
         Item _test_ordinary_item_01 = new Item {Name = "+5 Dexterity Vest", SellIn = 10, Quality = 20};
         Item _test_aged_brie = new Item {Name = ItemNames.AgedBrie, SellIn = 2, Quality = 0};
         Item _test_ordinary_item_02 = new Item {Name = "Elixir of the Mongoose", SellIn = 5, Quality = 7};
         Item _test_sulfuras_01 = new Item {Name = ItemNames.Sulfuras, SellIn = 0, Quality = 80};
-        Item _test_sulfuras_02 = new Item {Name = ItemNames.Sulfuras, SellIn = -1, Quality = 80};
-        Item _test_backstage_01 = new Item {Name = $"{ItemNames.BackstagePasses} to a TAFKAL80ETC concert", SellIn = 15, Quality = 20};
-        Item _test_backstage_02 = new Item {Name = $"{ItemNames.BackstagePasses} to a Bob Marley concert", SellIn = 10, Quality = 49};
-        Item _test_backstage_03 = new Item {Name = $"{ItemNames.BackstagePasses} to a Jungle Boys concert", SellIn = 5, Quality = 49};
-        // this conjured item does not work properly yet
         Item _test_conjured_01 = new Item {Name = ItemNames.Conjured, SellIn = 3, Quality = 6};
 
         [Test]
