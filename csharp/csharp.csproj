@@ -65,6 +65,7 @@
     <Compile Include="ApprovalTest.cs" />
     <Compile Include="BackstagePassItem.cs" />
     <Compile Include="GildedRose.cs" />
+    <Compile Include="GildedRoseConjuredItemTests.cs" />
     <Compile Include="GildedRoseRegularItemTests.cs" />
     <Compile Include="GildedRoseLegendaryItemTests.cs" />
     <Compile Include="GildedRoseBackstagePassItemTests.cs" />
@@ -77,6 +78,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Qualities.cs" />
+    <Compile Include="ConjuredItem.cs" />
     <Compile Include="RegularItem.cs" />
   </ItemGroup>
   <ItemGroup>
