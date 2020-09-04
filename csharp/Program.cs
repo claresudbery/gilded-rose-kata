@@ -9,10 +9,10 @@ namespace csharp
         {
             Console.WriteLine("OMGHAI!");
 
-            Use_self_managaing_items();
+            Use_self_managing_items();
         }
 
-        private static void Use_self_managaing_items()
+        private static void Use_self_managing_items()
         {
             IList<IItem> self_managing_items = new List<IItem>
             {
@@ -25,7 +25,7 @@ namespace csharp
                 new BackstagePassItem (" to a Bob Marley concert", 10, 49),
                 new BackstagePassItem (" to a Jungle Boys concert", 5, 49),
                 // this conjured item does not work properly yet
-                new RegularItem (ItemNames.Conjured, 3, 6)
+                new ConjuredItem (3, 20)
             };
 
             var app = new GildedRose(self_managing_items);
