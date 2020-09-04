@@ -2,8 +2,9 @@
 {
     public static class Qualities
     {
-        public const int FirstConcertQualityThreshold = 10;
-        public const int SecondConcertQualityThreshold = 5;
-        public const int MaxQuality = 50;
+        public const int FirstConcertThreshold = 10;
+        public const int SecondConcertThreshold = 5;
+        public const int Max = 50;
+        public const int Min = 0;
     }
 }

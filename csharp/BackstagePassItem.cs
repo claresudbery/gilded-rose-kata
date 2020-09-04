@@ -39,12 +39,12 @@
 
         private void Add_extra_quality_if_concert_date_is_near()
         {
-            if (_item.SellIn <= Qualities.FirstConcertQualityThreshold)
+            if (_item.SellIn <= Qualities.FirstConcertThreshold)
             {
                 Increment_quality();
             }
 
-            if (_item.SellIn <= Qualities.SecondConcertQualityThreshold)
+            if (_item.SellIn <= Qualities.SecondConcertThreshold)
             {
                 Increment_quality();
             }
@@ -57,7 +57,7 @@
 
         private void Increment_quality()
         {
-            if (_item.Quality < Qualities.MaxQuality)
+            if (_item.Quality < Qualities.Max)
             {
                 _item.Quality = _item.Quality + 1;
             }

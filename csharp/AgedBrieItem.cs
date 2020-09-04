@@ -43,7 +43,7 @@
 
         private void Increment_quality()
         {
-            if (_item.Quality < Qualities.MaxQuality)
+            if (_item.Quality < Qualities.Max)
             {
                 _item.Quality = _item.Quality + 1;
             }

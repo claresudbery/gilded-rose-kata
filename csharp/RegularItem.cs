@@ -33,7 +33,7 @@
 
         private void Decrement_quality()
         {
-            if (_item.Quality > 0)
+            if (_item.Quality > Qualities.Min)
             {
                 _item.Quality = _item.Quality - 1;
             }
