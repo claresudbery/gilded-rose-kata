@@ -7,12 +7,6 @@ namespace csharp
         readonly IList<Item> _items;
         readonly IList<IItem> _self_managing_items = new List<IItem>();
 
-        public GildedRose(IList<Item> items)
-        {
-            _items = items;
-            Build_self_managing_items(_items);
-        }
-
         public GildedRose(IList<IItem> self_managing_items)
         {
             _self_managing_items = self_managing_items;
@@ -27,29 +21,6 @@ namespace csharp
                 Update_number_of_days_until_sell_by_date(item_index);
 
                 Update_quality_if_sell_by_date_has_passed(item_index);
-            }
-        }
-
-        private void Build_self_managing_items(IList<Item> items)
-        {
-            for (var item_index = 0; item_index < _items.Count; item_index++)
-            {
-                if (Item_is_backstage_pass(item_index))
-                {
-                    _self_managing_items.Add(new BackstagePassItem(_items[item_index]));
-                }
-                else if (Item_is_aged_brie(item_index))
-                {
-                    _self_managing_items.Add(new AgedBrieItem(_items[item_index]));
-                }
-                else if (Item_is_legendary(item_index))
-                {
-                    _self_managing_items.Add(new LegendaryItem(_items[item_index]));
-                }
-                else 
-                {
-                    _self_managing_items.Add(new RegularItem(_items[item_index]));
-                }
             }
         }
 
@@ -69,21 +40,6 @@ namespace csharp
             {
                 _self_managing_items[item_index].Update_quality_after_sell_by_date_has_passed();
             }
-        }
-
-        private bool Item_is_aged_brie(int item_index)
-        {
-            return _items[item_index].Name == ItemNames.AgedBrie;
-        }
-
-        private bool Item_is_backstage_pass(int item_index)
-        {
-            return _items[item_index].Name.Contains(ItemNames.BackstagePasses);
-        }
-
-        private bool Item_is_legendary(int item_index)
-        {
-            return _items[item_index].Name == ItemNames.Sulfuras;
         }
     }
 }

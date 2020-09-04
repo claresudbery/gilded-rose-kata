@@ -69,7 +69,6 @@
     <Compile Include="GildedRoseLegendaryItemTests.cs" />
     <Compile Include="GildedRoseBackstagePassItemTests.cs" />
     <Compile Include="GildedRoseAgedBrieItemTests.cs" />
-    <Compile Include="GildedRoseItemTests.cs" />
     <Compile Include="IItem.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="ItemExtensions.cs" />
