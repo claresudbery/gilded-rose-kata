@@ -2,10 +2,6 @@
 {
     public class BackstagePassItem : IItem
     {
-        private const int FirstConcertQualityThreshold = 10;
-        private const int SecondConcertQualityThreshold = 5;
-        private const int MaxQuality = 50;
-
         private Item _item;
         public int Quality => _item.Quality;
         public int SellIn => _item.SellIn;
@@ -43,12 +39,12 @@
 
         private void Add_extra_quality_if_concert_date_is_near()
         {
-            if (_item.SellIn <= FirstConcertQualityThreshold)
+            if (_item.SellIn <= Qualities.FirstConcertQualityThreshold)
             {
                 Increment_quality();
             }
 
-            if (_item.SellIn <= SecondConcertQualityThreshold)
+            if (_item.SellIn <= Qualities.SecondConcertQualityThreshold)
             {
                 Increment_quality();
             }
@@ -61,7 +57,7 @@
 
         private void Increment_quality()
         {
-            if (_item.Quality < MaxQuality)
+            if (_item.Quality < Qualities.MaxQuality)
             {
                 _item.Quality = _item.Quality + 1;
             }

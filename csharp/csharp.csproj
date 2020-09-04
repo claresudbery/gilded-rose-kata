@@ -73,6 +73,7 @@
     <Compile Include="LegendaryItem.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Qualities.cs" />
     <Compile Include="RegularItem.cs" />
   </ItemGroup>
   <ItemGroup>

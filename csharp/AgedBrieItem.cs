@@ -2,8 +2,6 @@
 {
     public class AgedBrieItem : IItem
     {
-        private const int MaxQuality = 50;
-
         private Item _item;
         public int Quality => _item.Quality;
         public int SellIn => _item.SellIn;
@@ -45,7 +43,7 @@
 
         private void Increment_quality()
         {
-            if (_item.Quality < MaxQuality)
+            if (_item.Quality < Qualities.MaxQuality)
             {
                 _item.Quality = _item.Quality + 1;
             }
