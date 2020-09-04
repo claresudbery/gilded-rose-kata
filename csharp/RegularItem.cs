@@ -11,17 +11,17 @@
             _item = item;
         }
 
-        public void Adjust_daily_quality_value()
+        public void Update_daily_quality_value()
         {
             _item.Decrement_quality();
         }
 
-        public void Adjust_number_of_days_until_sell_by_date()
+        public void Update_number_of_days_until_sell_by_date()
         {
             _item.Decrement_sellIn();
         }
 
-        public void Adjust_quality_after_sell_by_date_has_passed()
+        public void Update_quality_after_sell_by_date_has_passed()
         {
             _item.Decrement_quality();
         }
