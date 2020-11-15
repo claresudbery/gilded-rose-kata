@@ -2,9 +2,11 @@
 
 I've copied this whole repo over from Emily Bache: https://github.com/emilybache/GildedRose-Refactoring-Kata
 
-The reason I copied the repo was so that I could have a go at the actual refactoring - I've done this in the csharp version of the code. I'm also planning to create a branch which will contain unit tests but the original functionality, to give people a starting point for refactoring with unit test coverage. It'll be called something like `csharp-test-start` - check the branches.
+The reason I copied the repo was so that I could have a go at the actual refactoring - I've done this in the csharp version of the code.  
+I've created a branch -`csharp-test-start`- which contains unit tests but the original functionality, to give people a starting point for refactoring with unit test coverage.  
+I've also created another branch - `csharp-stripped` - designed for use in workshops, which contains nothing but the original code.
 
-# Original Intro
+# Original Intro by Emily Bache:
 
 This Kata was originally created by Terry Hughes (http://twitter.com/TerryHughes). It is already on GitHub [here](https://github.com/NotMyself/GildedRose). See also [Bobby Johnson's description of the kata](http://iamnotmyself.com/2011/02/13/refactor-this-the-gilded-rose-kata/).
 
@@ -58,4 +60,4 @@ I analysed this repo according to the clean code standards on [Better Code Hub](
 
 [![BCH compliance](https://bettercodehub.com/edge/badge/emilybache/GildedRose-Refactoring-Kata?branch=master)](https://bettercodehub.com/) 
 
-(this readme was written by Emila Bache. Original repo here: https://github.com/emilybache/GildedRose-Refactoring-Kata)
+(this readme was written by Emily Bache. Emily's original repo is here: https://github.com/emilybache/GildedRose-Refactoring-Kata)
