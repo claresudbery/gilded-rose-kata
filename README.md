@@ -2,7 +2,9 @@
 
 I've copied this whole repo over from Emily Bache: https://github.com/emilybache/GildedRose-Refactoring-Kata
 
-The reason I copied the repo was so that I could have a go at the actual refactoring - I've done this in the csharp version of the code. I'm also planning to create a branch which will contain unit tests but the original functionality, to give people a starting point for refactoring with unit test coverage. It'll be called something like `csharp-test-start` - check the branches.
+The reason I copied the repo was so that I could have a go at the actual refactoring - I've done this in the csharp version of the code.  
+I've created a branch -`csharp-test-start`- which contains unit tests but the original functionality, to give people a starting point for refactoring with unit test coverage.  
+I've also created another branch - `csharp-stripped` - designed for use in workshops, which contains nothing but the original code.
 
 # Original Intro
 
