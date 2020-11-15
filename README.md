@@ -2,6 +2,8 @@
 
 I've copied this whole repo over from Emily Bache: https://github.com/emilybache/GildedRose-Refactoring-Kata
 
+The reason I copied the repo was so that I could have a go at the actual refactoring - I've done this in the csharp version of the code. I'm also planning to create a branch which will contain unit tests but the original functionality, to give people a starting point for refactoring with unit test coverage. It'll be called something like `csharp-test-start` - check the branches.
+
 # Original Intro
 
 This Kata was originally created by Terry Hughes (http://twitter.com/TerryHughes). It is already on GitHub [here](https://github.com/NotMyself/GildedRose). See also [Bobby Johnson's description of the kata](http://iamnotmyself.com/2011/02/13/refactor-this-the-gilded-rose-kata/).
@@ -16,7 +18,7 @@ I wrote this article ["Writing Good Tests for the Gilded Rose Kata"](http://codi
 
 ## How to use this Kata
 
-The simplest way is to just clone the code and start hacking away improving the design. You'll want to look at the ["Gilded Rose Requirements"](https://github.com/emilybache/GildedRose-Refactoring-Kata/tree/master/GildedRoseRequirements.txt) which explains what the code is for. I strongly advise you that you'll also need some tests if you want to make sure you don't break the code while you refactor.
+The simplest way is to just clone the code and start hacking away improving the design. You'll want to look at the ["Gilded Rose Requirements"](GildedRoseRequirements.md) which explains what the code is for. I strongly advise you that you'll also need some tests if you want to make sure you don't break the code while you refactor.
 
 You could write some unit tests yourself, using the requirements to identify suitable test cases. I've provided a failing unit test in a popular test framework as a starting point for most languages.
 
