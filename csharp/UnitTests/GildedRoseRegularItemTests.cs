@@ -7,8 +7,8 @@ namespace csharp.UnitTests
     [TestFixture]
     public class GildedRoseRegularItemTests
     {
-        RegularItem _test_ordinary_item_01 = new RegularItem("+5 Dexterity Vest", 10, 20);
-        RegularItem _test_ordinary_item_02 = new RegularItem("Elixir of the Mongoose", 5, 7);
+        readonly RegularItem _test_ordinary_item_01 = new RegularItem("+5 Dexterity Vest", 10, 20);
+        readonly RegularItem _test_ordinary_item_02 = new RegularItem("Elixir of the Mongoose", 5, 7);
 
         [Test]
         public void After_daily_update_SellIn_value_for_regular_items_goes_down_by_one()

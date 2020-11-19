@@ -7,7 +7,7 @@ namespace csharp.UnitTests
     [TestFixture]
     public class GildedRoseLegendaryItemTests
     {
-        LegendaryItem _test_sulfuras_01 = new LegendaryItem(0, 80);
+        readonly LegendaryItem _test_sulfuras_01 = new LegendaryItem(0, 80);
 
         [Test]
         public void After_daily_update_SellIn_value_for_sulfuras_remains_the_same()

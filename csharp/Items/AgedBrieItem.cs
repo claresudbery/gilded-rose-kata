@@ -4,7 +4,7 @@ namespace csharp.Items
 {
     public class AgedBrieItem : IItem
     {
-        private Item _item;
+        private readonly Item _item;
         public int Quality => _item.Quality;
         public int SellIn => _item.SellIn;
 

@@ -7,8 +7,8 @@ namespace csharp.UnitTests
     [TestFixture]
     public class GildedRoseConjuredItemTests
     {
-        ConjuredItem _test_conjured_item_01 = new ConjuredItem(10, 20);
-        ConjuredItem _test_conjured_item_02 = new ConjuredItem(5, 7);
+        readonly ConjuredItem _test_conjured_item_01 = new ConjuredItem(10, 20);
+        readonly ConjuredItem _test_conjured_item_02 = new ConjuredItem(5, 7);
 
         [Test]
         public void After_daily_update_SellIn_value_for_conjured_items_goes_down_by_one()

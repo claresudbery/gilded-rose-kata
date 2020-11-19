@@ -7,7 +7,7 @@ namespace csharp.UnitTests
     [TestFixture]
     public class GildedRoseAgedBrieItemTests
     {
-        AgedBrieItem _test_aged_brie = new AgedBrieItem(2, 0);
+        readonly AgedBrieItem _test_aged_brie = new AgedBrieItem(2, 0);
 
         [Test]
         public void After_daily_update_SellIn_value_for_aged_brie_items_goes_down_by_one()

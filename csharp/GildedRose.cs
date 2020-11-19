@@ -5,8 +5,7 @@ namespace csharp
 {
     public class GildedRose
     {
-        readonly IList<Item> _items;
-        readonly IList<IItem> _self_managing_items = new List<IItem>();
+        readonly IList<IItem> _self_managing_items;
 
         public GildedRose(IList<IItem> self_managing_items)
         {
