@@ -65,11 +65,11 @@
     <Compile Include="ApprovalTest.cs" />
     <Compile Include="Items\BackstagePassItem.cs" />
     <Compile Include="GildedRose.cs" />
-    <Compile Include="GildedRoseConjuredItemTests.cs" />
-    <Compile Include="GildedRoseRegularItemTests.cs" />
-    <Compile Include="GildedRoseLegendaryItemTests.cs" />
-    <Compile Include="GildedRoseBackstagePassItemTests.cs" />
-    <Compile Include="GildedRoseAgedBrieItemTests.cs" />
+    <Compile Include="UnitTests\GildedRoseConjuredItemTests.cs" />
+    <Compile Include="UnitTests\GildedRoseRegularItemTests.cs" />
+    <Compile Include="UnitTests\GildedRoseLegendaryItemTests.cs" />
+    <Compile Include="UnitTests\GildedRoseBackstagePassItemTests.cs" />
+    <Compile Include="UnitTests\GildedRoseAgedBrieItemTests.cs" />
     <Compile Include="Items\IItem.cs" />
     <Compile Include="Items\Item.cs" />
     <Compile Include="ItemExtensions.cs" />
@@ -88,9 +88,7 @@
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="NewFolder1\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
