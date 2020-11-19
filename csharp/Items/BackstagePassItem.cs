@@ -1,4 +1,6 @@
-﻿namespace csharp.Items
+﻿using csharp.Utils;
+
+namespace csharp.Items
 {
     public class BackstagePassItem : IItem
     {

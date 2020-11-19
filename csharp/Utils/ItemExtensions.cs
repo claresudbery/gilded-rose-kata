@@ -1,6 +1,6 @@
 ﻿using csharp.Items;
 
-namespace csharp
+namespace csharp.Utils
 {
     public static class ItemExtensions
     {

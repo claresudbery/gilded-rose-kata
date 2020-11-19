@@ -72,12 +72,12 @@
     <Compile Include="UnitTests\GildedRoseAgedBrieItemTests.cs" />
     <Compile Include="Items\IItem.cs" />
     <Compile Include="Items\Item.cs" />
-    <Compile Include="ItemExtensions.cs" />
-    <Compile Include="ItemNames.cs" />
+    <Compile Include="Utils\ItemExtensions.cs" />
+    <Compile Include="Utils\ItemNames.cs" />
     <Compile Include="Items\LegendaryItem.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Qualities.cs" />
+    <Compile Include="Utils\Qualities.cs" />
     <Compile Include="Items\ConjuredItem.cs" />
     <Compile Include="Items\RegularItem.cs" />
   </ItemGroup>

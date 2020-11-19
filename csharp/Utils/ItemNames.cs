@@ -1,4 +1,4 @@
-﻿namespace csharp
+﻿namespace csharp.Utils
 {
     public static class ItemNames
     {
