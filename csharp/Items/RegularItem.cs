@@ -1,21 +1,21 @@
-﻿namespace csharp
+﻿namespace csharp.Items
 {
-    public class AgedBrieItem : IItem
+    internal class RegularItem : IItem
     {
         private Item _item;
         public int Quality => _item.Quality;
         public int SellIn => _item.SellIn;
 
-        public AgedBrieItem(Item item)
+        public RegularItem(Item item)
         {
             _item = item;
         }
 
-        public AgedBrieItem(int sell_in, int quality)
+        public RegularItem(string name, int sell_in, int quality)
         {
             _item = new Item
             {
-                Name = ItemNames.AgedBrie,
+                Name = name,
                 SellIn = sell_in,
                 Quality = quality
             };
@@ -23,7 +23,7 @@
 
         public void Update_daily_quality_value()
         {
-            _item.Increment_quality();
+            _item.Decrement_quality();
         }
 
         public void Update_number_of_days_until_sell_by_date()
@@ -33,7 +33,7 @@
 
         public void Update_quality_after_sell_by_date_has_passed()
         {
-            _item.Increment_quality();
+            _item.Decrement_quality();
         }
 
         public override string ToString()

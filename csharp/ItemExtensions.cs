@@ -1,4 +1,6 @@
-﻿namespace csharp
+﻿using csharp.Items;
+
+namespace csharp
 {
     public static class ItemExtensions
     {

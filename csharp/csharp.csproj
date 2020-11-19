@@ -61,25 +61,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AgedBrieItem.cs" />
+    <Compile Include="Items\AgedBrieItem.cs" />
     <Compile Include="ApprovalTest.cs" />
-    <Compile Include="BackstagePassItem.cs" />
+    <Compile Include="Items\BackstagePassItem.cs" />
     <Compile Include="GildedRose.cs" />
     <Compile Include="GildedRoseConjuredItemTests.cs" />
     <Compile Include="GildedRoseRegularItemTests.cs" />
     <Compile Include="GildedRoseLegendaryItemTests.cs" />
     <Compile Include="GildedRoseBackstagePassItemTests.cs" />
     <Compile Include="GildedRoseAgedBrieItemTests.cs" />
-    <Compile Include="IItem.cs" />
-    <Compile Include="Item.cs" />
+    <Compile Include="Items\IItem.cs" />
+    <Compile Include="Items\Item.cs" />
     <Compile Include="ItemExtensions.cs" />
     <Compile Include="ItemNames.cs" />
-    <Compile Include="LegendaryItem.cs" />
+    <Compile Include="Items\LegendaryItem.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Qualities.cs" />
-    <Compile Include="ConjuredItem.cs" />
-    <Compile Include="RegularItem.cs" />
+    <Compile Include="Items\ConjuredItem.cs" />
+    <Compile Include="Items\RegularItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -89,7 +89,7 @@
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Items\" />
+    <Folder Include="NewFolder1\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
