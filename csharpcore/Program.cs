@@ -51,6 +51,9 @@ namespace csharpcore
                 Console.WriteLine("");
                 app.UpdateQuality();
             }
+
+            Console.WriteLine("Press Enter to exit.");
+            Console.ReadLine();
         }
     }
 }
