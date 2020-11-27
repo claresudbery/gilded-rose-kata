@@ -24,10 +24,5 @@ namespace csharp
                 }
             }
         }
-
-        private IItem Get_item(int item_index)
-        {
-            return _self_managing_items[item_index];
-        }
     }
 }
