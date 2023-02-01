@@ -2,7 +2,7 @@
 
 I've copied this whole repo over from Emily Bache: https://github.com/emilybache/GildedRose-Refactoring-Kata
 
-!! I don't use this repo any more. I use my forked version instead. Full explanation here.
+!! I don't use this repo any more. I use my forked version instead. [Full explanation here](https://github.com/claresudbery/GildedRose-Refactoring-Kata/blob/clare-fork-readme/README.md).
 
 The only reason I'm keeping this repo around is that:
 
